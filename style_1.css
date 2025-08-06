@@ -105,19 +105,19 @@
       margin-top: 16px;
     }
 
-    #section_2 h1 {
+    .section_2 h1 {
       color: #ffffff;
     }
 
-    #section_1,
-    #section_2,
-    #section_3,
+    .section_1,
+    .section_2,
+    .section_3,
     .section_4 {
       scroll-margin-top: 120px;
       margin-top: 50px;
     }
 
-    #section_2 {
+    .section_2 {
       background-image: url(./bgc1.png);
       background-size: cover;
       background-position: center;
@@ -128,7 +128,7 @@
       color: #ffffff;
     }
 
-    #section_2 .inner {
+    .section_2 .inner {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
@@ -198,9 +198,9 @@
         margin: 30px auto 0 auto;
       }
 
-      #section_1,
-      #section_2,
-      #section_3,
+      .section_1,
+      .section_2,
+      .section_3,
       .section_4 {
         margin-top: 40px;
       }
