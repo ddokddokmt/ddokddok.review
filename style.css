@@ -1252,3 +1252,67 @@ html {
         /* 고정 금지 */
     }
 }
+
+/* ───────────────────────────────────
+   item1 오른쪽 가격 영역: 배경가격(이미지) 위에
+   "이벤트 가 월 0원" 텍스트를 겹쳐 올리기
+   ─────────────────────────────────── */
+.area4 .item1 .middle .right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* 우측 정렬 */
+    justify-content: center;
+    min-height: 100px;
+    /* 겹치기 위한 최소 높이 */
+    text-align: right;
+}
+
+/* 첫 번째 h3(배경 가격 이미지)는 절대배치로 깔아줌 */
+.area4 .item1 .middle .right h3:first-child {
+    position: absolute !important;
+    right: 0;
+    top: 0;
+    /* 필요하면 -6px ~ 10px 사이로 미세조정 */
+    margin: 0 !important;
+    z-index: 0;
+    /* 뒤로 */
+    pointer-events: none;
+    /* 클릭 방해 방지 */
+}
+
+/* 배경 이미지 크기(반응형) */
+.area4 .item1 .middle .right h3:first-child img {
+    width: clamp(180px, 20vw, 320px);
+    height: auto;
+    display: block;
+    /* 이미지 자체가 연하게 되어있다면 필터 불필요, 더 연하게 하고 싶으면 아래 주석 해제
+  opacity: .45;
+  */
+}
+
+/* 두 번째 h3(이벤트 가격 텍스트)는 위에 오도록 */
+.area4 .item1 .middle .right h3:last-child {
+    position: relative;
+    z-index: 1;
+    /* 위로 */
+    margin: 0;
+}
+
+/* 기존 margin-bottom 등 간격 규칙 무력화 */
+.area4 .item1 .middle .right h3:first-child,
+.area4 .item1 .middle .right h3 {
+    margin-bottom: 0 !important;
+}
+
+/* 모바일 사이즈 보정 */
+@media (max-width: 900px) {
+    .area4 .item1 .middle .right {
+        min-height: 80px;
+    }
+
+    .area4 .item1 .middle .right h3:first-child img {
+        width: clamp(150px, 44vw, 260px);
+    }
+}
