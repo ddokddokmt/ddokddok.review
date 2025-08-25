@@ -1790,71 +1790,153 @@ html {
 /* ===== 가격 영역: middle 바닥 정렬(패키지+추가 상품 공통) ===== */
 /* 데스크톱에서 middle을 2열 Grid로: 왼쪽=설명, 오른쪽=가격. 두 칼럼 모두 '아래' 정렬 */
 @media (min-width: 901px) {
-  .area4 .item1 .middle,
-  .area4 .item2 .middle,
-  .area4 .item3 .middle,
-  .area4 .item4 .middle,
-  .area4 .item5 .middle {
-    display: grid !important;
-    grid-template-columns: 1fr auto !important;  /* 왼쪽 가변, 오른쪽 내용만큼 */
-    align-items: end !important;                  /* 행 안에서 바닥 정렬 */
-    column-gap: 20px !important;
-    row-gap: 0 !important;
-  }
 
-  /* 왼쪽/오른쪽 포지션 명시 */
-  .area4 .item1 .middle .left,
-  .area4 .item2 .middle .left,
-  .area4 .item3 .middle .left,
-  .area4 .item4 .middle .left,
-  .area4 .item5 .middle .left {
-    grid-column: 1 !important;
-    margin: 0 !important;
-    float: none !important;
-  }
-  .area4 .item1 .middle .right,
-  .area4 .item2 .middle .right,
-  .area4 .item3 .middle .right,
-  .area4 .item4 .middle .right,
-  .area4 .item5 .middle .right {
-    grid-column: 2 !important;
-    text-align: right !important;
-    align-self: end !important;   /* 오른쪽 묶음 자체도 바닥에 */
-    float: none !important;
+    .area4 .item1 .middle,
+    .area4 .item2 .middle,
+    .area4 .item3 .middle,
+    .area4 .item4 .middle,
+    .area4 .item5 .middle {
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        /* 왼쪽 가변, 오른쪽 내용만큼 */
+        align-items: end !important;
+        /* 행 안에서 바닥 정렬 */
+        column-gap: 20px !important;
+        row-gap: 0 !important;
+    }
 
-    /* 예전에 넣었을 수 있는 고정행/고정높이 규칙 무력화 */
-    grid-template-rows: initial !important;
-  }
+    /* 왼쪽/오른쪽 포지션 명시 */
+    .area4 .item1 .middle .left,
+    .area4 .item2 .middle .left,
+    .area4 .item3 .middle .left,
+    .area4 .item4 .middle .left,
+    .area4 .item5 .middle .left {
+        grid-column: 1 !important;
+        margin: 0 !important;
+        float: none !important;
+    }
 
-  /* 오른쪽 h3 간격/리셋 (첫 h3=이전가 이미지, 둘째 h3=현재가 텍스트) */
-  .area4 .item1 .middle .right h3,
-  .area4 .item2 .middle .right h3,
-  .area4 .item3 .middle .right h3,
-  .area4 .item4 .middle .right h3,
-  .area4 .item5 .middle .right h3 {
-    margin: 0 !important;
-    display: block !important;
-  }
-  .area4 .item1 .middle .right h3:first-child,
-  .area4 .item2 .middle .right h3:first-child,
-  .area4 .item3 .middle .right h3:first-child,
-  .area4 .item4 .middle .right h3:first-child,
-  .area4 .item5 .middle .right h3:first-child {
-    margin-bottom: 10px !important; /* 이전가 이미지와 현재가 텍스트 사이 여백 */
-    height: auto !important;        /* 혹시 걸려있을 고정높이 제거 */
-  }
+    .area4 .item1 .middle .right,
+    .area4 .item2 .middle .right,
+    .area4 .item3 .middle .right,
+    .area4 .item4 .middle .right,
+    .area4 .item5 .middle .right {
+        grid-column: 2 !important;
+        text-align: right !important;
+        align-self: end !important;
+        /* 오른쪽 묶음 자체도 바닥에 */
+        float: none !important;
 
-  /* 이전가 이미지 비율 유지 + 높이만 적당히 제한 (카드마다 통일감) */
-  .area4 .item1 .middle .right h3:first-child img,
-  .area4 .item2 .middle .right h3:first-child img,
-  .area4 .item3 .middle .right h3:first-child img,
-  .area4 .item4 .middle .right h3:first-child img,
-  .area4 .item5 .middle .right h3:first-child img {
-    display: block !important;
-    height: auto !important;
-    width: auto !important;
-    max-height: clamp(36px, 5vw, 64px) !important;  /* 필요 시 숫자만 조정 */
-  }
+        /* 예전에 넣었을 수 있는 고정행/고정높이 규칙 무력화 */
+        grid-template-rows: initial !important;
+    }
+
+    /* 오른쪽 h3 간격/리셋 (첫 h3=이전가 이미지, 둘째 h3=현재가 텍스트) */
+    .area4 .item1 .middle .right h3,
+    .area4 .item2 .middle .right h3,
+    .area4 .item3 .middle .right h3,
+    .area4 .item4 .middle .right h3,
+    .area4 .item5 .middle .right h3 {
+        margin: 0 !important;
+        display: block !important;
+    }
+
+    .area4 .item1 .middle .right h3:first-child,
+    .area4 .item2 .middle .right h3:first-child,
+    .area4 .item3 .middle .right h3:first-child,
+    .area4 .item4 .middle .right h3:first-child,
+    .area4 .item5 .middle .right h3:first-child {
+        margin-bottom: 10px !important;
+        /* 이전가 이미지와 현재가 텍스트 사이 여백 */
+        height: auto !important;
+        /* 혹시 걸려있을 고정높이 제거 */
+    }
+
+    /* 이전가 이미지 비율 유지 + 높이만 적당히 제한 (카드마다 통일감) */
+    .area4 .item1 .middle .right h3:first-child img,
+    .area4 .item2 .middle .right h3:first-child img,
+    .area4 .item3 .middle .right h3:first-child img,
+    .area4 .item4 .middle .right h3:first-child img,
+    .area4 .item5 .middle .right h3:first-child img {
+        display: block !important;
+        height: auto !important;
+        width: auto !important;
+        max-height: clamp(36px, 5vw, 64px) !important;
+        /* 필요 시 숫자만 조정 */
+    }
 }
 
 /* 모바일(<=900px)은 너가 이미 단일 컬럼 그리드로 처리해둔 것 그대로 유지 */
+
+
+/* ===== 모바일: 가격 블록(.right)을 아래로 내리기(패키지+추가상품 공통) ===== */
+@media (max-width: 900px) {
+
+    /* middle을 단일 컬럼 그리드로 */
+    .area4 .item1 .middle,
+    .area4 .item2 .middle,
+    .area4 .item3 .middle,
+    .area4 .item4 .middle,
+    .area4 .item5 .middle {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        /* 한 열 */
+        grid-auto-rows: max-content !important;
+        row-gap: 12px !important;
+        align-items: start !important;
+    }
+
+    /* 왼쪽 설명 먼저(1), 가격은 그 다음(2) → 아래로 내려감 */
+    .area4 .item1 .middle .left,
+    .area4 .item2 .middle .left,
+    .area4 .item3 .middle .left,
+    .area4 .item4 .middle .left,
+    .area4 .item5 .middle .left {
+        order: 1 !important;
+        grid-column: 1 !important;
+        float: none !important;
+        margin: 0 !important;
+    }
+
+    .area4 .item1 .middle .right,
+    .area4 .item2 .middle .right,
+    .area4 .item3 .middle .right,
+    .area4 .item4 .middle .right,
+    .area4 .item5 .middle .right {
+        order: 2 !important;
+        /* 아래로 */
+        grid-column: 1 !important;
+        /* 같은 컬럼 */
+        float: none !important;
+        text-align: left !important;
+        /* 필요하면 right로 바꿔도 OK */
+        justify-self: start !important;
+        /* 좌측 정렬 */
+        align-self: start !important;
+        margin-top: 6px !important;
+        width: 100% !important;
+        /* 줄바꿈 안정화 */
+    }
+
+    /* 가격 텍스트/이미지 기본 여백 정리 */
+    .area4 .item1 .middle .right h3,
+    .area4 .item2 .middle .right h3,
+    .area4 .item3 .middle .right h3,
+    .area4 .item4 .middle .right h3,
+    .area4 .item5 .middle .right h3 {
+        margin: 0 0 6px 0 !important;
+        display: block !important;
+    }
+
+    /* 이전가 이미지 비율 유지 */
+    .area4 .item1 .middle .right h3:first-child img,
+    .area4 .item2 .middle .right h3:first-child img,
+    .area4 .item3 .middle .right h3:first-child img,
+    .area4 .item4 .middle .right h3:first-child img,
+    .area4 .item5 .middle .right h3:first-child img {
+        display: block !important;
+        height: auto !important;
+        width: auto !important;
+        max-height: clamp(32px, 6vw, 56px) !important;
+    }
+}
