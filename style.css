@@ -1431,3 +1431,72 @@ html {
     }
 
 }
+
+/* ───────── 공통: 가격 블럭에 기준선(anchor) 만들기 ───────── */
+.area4 .item1 .middle .right,
+.area4 .item2 .middle .right,
+.area4 .item3 .middle .right {
+    position: relative;
+    min-height: clamp(120px, 18vw, 160px);
+    /* 배경/가격 겹침 여유 */
+    padding: 6px 0 16px;
+    text-align: right;
+}
+
+/* item2/3의 첫 번째 빈 h3가 공간을 차지하지 않도록 제거 */
+.area4 .item2 .middle .right h3:first-child,
+.area4 .item3 .middle .right h3:first-child {
+    display: none !important;
+}
+
+/* item1: 배경가격(월 5,500원 이미지)은 뒤로 절대배치 */
+.area4 .item1 .middle .right h3:first-child {
+    position: absolute !important;
+    right: 0;
+    top: -6px;
+    /* 필요하면 -10 ~ +6px로 미세조정 */
+    margin: 0 !important;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.area4 .item1 .middle .right h3:first-child img {
+    width: clamp(180px, 20vw, 320px);
+    height: auto;
+    display: block;
+}
+
+/* 모든 카드의 '가격 텍스트'를 동일한 기준선에 고정 */
+.area4 .item1 .middle .right h3:last-child,
+.area4 .item2 .middle .right h3:last-child,
+.area4 .item3 .middle .right h3:last-child {
+    position: absolute;
+    right: 0;
+    top: var(--price-top, 46px);
+    /* ← 공통 기준선: 숫자만 바꾸면 세 카드가 같이 움직임 */
+    margin: 0 !important;
+    z-index: 1;
+}
+
+/* 필요 시 카드별 미세 튜닝도 가능(지금은 동일값으로 통일) */
+.area4 .item1 {
+    --price-top: 46px;
+}
+
+.area4 .item2 {
+    --price-top: 46px;
+}
+
+.area4 .item3 {
+    --price-top: 46px;
+}
+
+/* 모바일에서 기준선 살짝 낮춤(원하면 값만 조정) */
+@media (max-width: 900px) {
+
+    .area4 .item1,
+    .area4 .item2,
+    .area4 .item3 {
+        --price-top: 40px;
+    }
+}
