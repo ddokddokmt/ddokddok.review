@@ -1142,25 +1142,66 @@ html {
 
 
 /* ===== Scroll Snap 완전 OFF ===== */
-html, body { scroll-snap-type: none !important; }
-.video-container,
-.area1, .area2, .area3, .area4, .video-container_b {
-  scroll-snap-align: none !important;
-  scroll-snap-stop: normal !important;
+html,
+body {
+    scroll-snap-type: none !important;
 }
+
+.video-container,
+.area1,
+.area2,
+.area3,
+.area4,
+.video-container_b {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+}
+
 /* 바운스/체인 스크롤 최소화 */
-html { overscroll-behavior-y: contain; }
+html {
+    overscroll-behavior-y: contain;
+}
 
 body {
     background-color: #fff;
-    
+
 }
 
 /* ===== Scroll Snap 완전 OFF (JS 페이징과 충돌 방지) ===== */
-html, body { scroll-snap-type: none !important; }
-.video-container, .area1, .area2, .area3, .area4, .video-container_b, .area5 {
-  scroll-snap-align: none !important;
-  scroll-snap-stop: normal !important;
+html,
+body {
+    scroll-snap-type: none !important;
 }
+
+.video-container,
+.area1,
+.area2,
+.area3,
+.area4,
+.video-container_b,
+.area5 {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+}
+
 /* 바운스/체인 스크롤 최소화 */
-html { overscroll-behavior-y: contain; }
+html {
+    overscroll-behavior-y: contain;
+}
+
+/* 고정 헤더 보정 + 부드러운 스크롤 */
+html {
+    scroll-behavior: smooth;
+    /* 클릭 시 부드럽게 */
+    scroll-padding-top: var(--hdr, 90px);
+    /* 앵커 점프 시 헤더만큼 띄우기 */
+}
+
+/* 타깃 섹션들은 앵커 점프 시 헤더를 피하도록 여유 */
+#area1,
+#area2,
+#area3,
+#area4,
+#area5 {
+    scroll-margin-top: var(--hdr, 90px);
+}
