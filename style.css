@@ -1,0 +1,1166 @@
+/* =========================
+   Fonts
+   ========================= */
+@font-face {
+    font-family: "4";
+    src: url(./Paperlogy-4Regular.ttf);
+}
+
+@font-face {
+    font-family: "6";
+    src: url(./Paperlogy-6SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "7";
+    src: url(./Paperlogy-7Bold.ttf);
+}
+
+@font-face {
+    font-family: "8";
+    src: url(./Paperlogy-8ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: "gowun";
+    src: url(./GowunBatang-Bold.ttf);
+}
+
+/* =========================
+   Reset & Base
+   ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+figure {
+    width: fit-content;
+    height: fit-content;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h2 {
+    font-family: "8";
+}
+
+h4,
+p {
+    font-family: "4";
+}
+
+/* =========================
+   Video containers
+   ========================= */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 220vh;
+    overflow: hidden;
+}
+
+.video-container_b {
+    position: relative;
+    width: 100%;
+    height: 150vh;
+    overflow: hidden;
+}
+
+#top-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 220vh;
+    object-fit: cover;
+    object-position: 50% 50%;
+    background: #000;
+    z-index: -1;
+}
+
+#bottom-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 150vh;
+    object-fit: cover;
+    background: #000;
+    z-index: -1;
+}
+
+/* =========================
+   Sections
+   ========================= */
+.area1 {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+}
+
+.area2 {
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    margin-top: 230px;
+    scroll-snap-align: start;
+}
+
+.area2 figure {
+    margin: auto;
+}
+
+.area2 figure img {
+    width: min(720px, 90vw);
+    height: auto;
+}
+
+.area2 h2 {
+    font-size: clamp(24px, 6vw, 64px);
+    margin-top: 32px;
+}
+
+.area2 span {
+    font-family: "4";
+    font-weight: 400;
+}
+
+.area3 {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.area3 .start-box {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.area3 .start-box h2 {
+    font-size: clamp(24px, 5.6vw, 64px);
+    padding-top: 100px;
+}
+
+.area3 .start-box span {
+    font-family: "4";
+    font-weight: 400;
+}
+
+.area3 .start-box figure {
+    margin: auto;
+    margin-top: 32px;
+}
+
+.area3 .box {
+    max-width: 1280px;
+    width: 100%;
+    margin: 150px auto 0;
+    padding: 0 20px;
+}
+
+.area3 .box h3 {
+    font-size: clamp(16px, 3.8vw, 24px);
+    font-family: "gowun";
+    color: #6366FF;
+}
+
+.area3 .box h2 {
+    font-family: "4";
+    font-weight: 400;
+    font-size: clamp(18px, 4.6vw, 32px);
+    margin-top: 16px;
+}
+
+.area3 .box span {
+    font-family: "8";
+}
+
+.area3 .box .r-box {
+    width: min(320px, 88vw);
+    height: clamp(42px, 9.6vw, 50px);
+    background: #f0f0f0;
+    text-align: center;
+    align-content: center;
+    border-radius: 25px;
+    margin: 50px auto;
+    font-size: clamp(14px, 3.8vw, 24px);
+    font-family: "4";
+}
+
+.area3 .box figure {
+    margin: auto;
+}
+
+.area3 .box p {
+    margin-top: 16px;
+    color: #9c9c9c;
+}
+
+.area4 {
+    width: 100%;
+    height: auto;
+    margin: 100px auto;
+}
+
+.area4 .text-b {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.area4 .text-b h4 {
+    font-weight: 400;
+    font-size: clamp(14px, 3.2vw, 20px);
+}
+
+.area4 .text-b h2 {
+    font-size: clamp(24px, 6.2vw, 64px);
+    margin: 32px 0;
+}
+
+.area4 .text-b span {
+    font-weight: 400;
+    font-family: "4";
+}
+
+.area4 .text-b p {
+    font-size: clamp(14px, 3.6vw, 24px);
+}
+
+.area4 .package {
+    width: 100%;
+    max-width: 1280px;
+    margin: 24px auto;
+    padding: 0 20px;
+}
+
+.area4 .package .top-t {
+    text-align: center;
+}
+
+.area4 .package .top-t h2 {
+    width: 111px;
+    margin: auto;
+    display: inline-block;
+}
+
+.line {
+    width: 170px;
+    height: 1px;
+    background: #2e2e2e;
+    display: inline-block;
+    margin: 0 8px 7.5px;
+}
+
+.area4 .item1,
+.area4 .item2,
+.area4 .item3,
+.area4 .item4,
+.area4 .item5 {
+    width: 100%;
+    max-width: 930px;
+    overflow: hidden;
+    background: #F0F8FF;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, .2);
+    padding: 32px;
+    margin: 24px auto 0;
+}
+
+.area4 .item4,
+.area4 .item5 {
+    background: #ececec;
+}
+
+.area4 .item1 .top .bedge {
+    background: linear-gradient(135deg, #66B5FF 0%, #AFD8FF 100%);
+}
+
+.area4 .item2 .top .bedge {
+    background: linear-gradient(135deg, #66B5FF 0%, #6366FF 100%);
+}
+
+.area4 .item3 .top .bedge {
+    background: linear-gradient(135deg, #D466FF 0%, #6366FF 100%);
+}
+
+.area4 .item4 .top .bedge {
+    background: linear-gradient(135deg, #FF6668 0%, #FFAFB1 100%);
+}
+
+.area4 .item5 .top .bedge {
+    background: linear-gradient(135deg, #B2B2B2 0%, #777 100%);
+}
+
+.area4 .item1 .top .bedge,
+.area4 .item2 .top .bedge,
+.area4 .item3 .top .bedge,
+.area4 .item4 .top .bedge,
+.area4 .item5 .top .bedge {
+    border-radius: 25px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, .2);
+    border: 1px solid #fff;
+    color: #fff;
+    font-family: "7";
+    text-align: center;
+    width: 200px;
+    padding: 8px 16px;
+    float: left;
+}
+
+.area4 .item1 .top ul,
+.area4 .item2 .top ul,
+.area4 .item3 .top ul,
+.area4 .item4 .top ul,
+.area4 .item5 .top ul {
+    list-style: disc;
+    float: right;
+    font-size: 20px;
+    font-family: "6";
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+    text-align: right;
+}
+
+/* middle: 공통 */
+.area4 .item1 .middle,
+.area4 .item2 .middle,
+.area4 .item3 .middle,
+.area4 .item4 .middle,
+.area4 .item5 .middle {
+    width: 100%;
+    float: left;
+    margin: 24px 0;
+}
+
+.area4 .item1 .middle .left h2,
+.area4 .item2 .middle .left h2,
+.area4 .item3 .middle .left h2,
+.area4 .item4 .middle .left h2,
+.area4 .item5 .middle .left h2 {
+    font-size: clamp(18px, 4.6vw, 32px);
+    margin-bottom: 16px;
+}
+
+.area4 .item1 .middle .right h3,
+.area4 .item2 .middle .right h3,
+.area4 .item3 .middle .right h3,
+.area4 .item4 .middle .right h3,
+.area4 .item5 .middle .right h3 {
+    font-size: clamp(14px, 3.6vw, 20px);
+}
+
+.area4 .item1 .middle .right h3:first-child,
+.area4 .item2 .middle .right h3:first-child,
+.area4 .item3 .middle .right h3:first-child,
+.area4 .item4 .middle .right h3:first-child,
+.area4 .item5 .middle .right h3:first-child {
+    margin-bottom: 16px;
+}
+
+.area4 .item2 .middle .right h3:first-child,
+.area4 .item3 .middle .right h3:first-child,
+.area4 .item4 .middle .right h3:first-child,
+.area4 .item5 .middle .right h3:first-child {
+    height: 51px;
+}
+
+.area4 .item1 .middle .right span,
+.area4 .item2 .middle .right span,
+.area4 .item3 .middle .right span,
+.area4 .item4 .middle .right span,
+.area4 .item5 .middle .right span {
+    font-size: clamp(28px, 7vw, 52px);
+    font-family: "8";
+}
+
+.area4 .item1 .middle p:last-child {
+    margin-top: 8px;
+    color: #6b6b6b;
+}
+
+.area4 .item2 .middle p:last-child,
+.area4 .item3 .middle p:last-child,
+.area4 .item4 .middle p:last-child,
+.area4 .item5 .middle p:last-child {
+    margin-top: 8px;
+}
+
+.area4 .item1 .bottom,
+.area4 .item2 .bottom,
+.area4 .item3 .bottom,
+.area4 .item4 .bottom,
+.area4 .item5 .bottom {
+    width: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.area4 .item1 .bottom .arrow,
+.area4 .item2 .bottom .arrow,
+.area4 .item3 .bottom .arrow,
+.area4 .item4 .bottom .arrow,
+.area4 .item5 .bottom .arrow {
+    float: none;
+    margin-top: 18.5px;
+}
+
+.area4 .item1 .bottom .bedge,
+.area4 .item2 .bottom .bedge,
+.area4 .item3 .bottom .bedge,
+.area4 .item4 .bottom .bedge,
+.area4 .item5 .bottom .bedge {
+    float: none;
+    width: 180px;
+    height: 45px;
+    border-radius: 25px;
+    text-align: center;
+    align-content: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    font-family: "7";
+    font-size: 24px;
+}
+
+.area4 .item1 .bottom .bedge {
+    background: linear-gradient(135deg, #66B5FF 0%, #AFD8FF 100%);
+}
+
+.area4 .item2 .bottom .bedge {
+    background: linear-gradient(135deg, #66B5FF 0%, #6366FF 100%);
+}
+
+.area4 .item3 .bottom .bedge {
+    background: linear-gradient(135deg, #D466FF 0%, #6366FF 100%);
+}
+
+.area4 .item4 .bottom .bedge {
+    background: linear-gradient(135deg, #FF6668 0%, #FFAFB1 100%);
+}
+
+.area4 .item5 .bottom .bedge {
+    background: linear-gradient(135deg, #B2B2B2 0%, #777 100%);
+}
+
+/* Area5 (CTA on bottom video) */
+.video-container:last-child {
+    position: relative;
+    width: 100%;
+}
+
+.area5 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    top: clamp(160px, 24vh, 350px);
+}
+
+.area5 .title {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.area5 .title h4 {
+    font-family: "4";
+    font-size: clamp(12px, 2.8vw, 20px);
+    font-weight: 400;
+    color: rgba(255, 255, 255, .5);
+}
+
+.area5 .title h2 {
+    font-size: clamp(24px, 6.6vw, 64px);
+    margin: 16px 0;
+}
+
+.area5 .title h3 {
+    font-size: clamp(16px, 4.2vw, 32px);
+    margin-bottom: 16px;
+}
+
+.area5 .bbox figure {
+    margin: auto;
+    max-width: min(820px, 92vw);
+}
+
+.area5 .btn {
+    margin: auto;
+    margin-top: 32px;
+    width: clamp(160px, 36vw, 215px);
+    height: clamp(46px, 12vw, 60px);
+    background: linear-gradient(135deg, #66B5FF 0%, #6366FF 100%);
+    align-content: center;
+    text-align: center;
+    color: #fff;
+    font-family: "7";
+    font-size: clamp(14px, 3.6vw, 24px);
+    border-radius: 30px;
+}
+
+/* =========================
+   Header & Nav
+   ========================= */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    background: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(126, 126, 126, .5);
+    z-index: 1;
+    transition: background-color .2s ease, border-color .2s ease;
+}
+
+.inner {
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    margin: auto;
+    align-content: center;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inner h1 {
+    float: none;
+    align-content: center;
+}
+
+.inner nav {
+    float: none;
+    font-family: "4";
+}
+
+.inner nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(12px, 3.2vw, 40px);
+    text-align: center;
+}
+
+.inner nav ul li {
+    display: inline-block;
+    color: #0f0f0f;
+    font-size: 20px;
+}
+
+.inner nav ul li:hover {
+    font-weight: 800;
+    color: #6366FF;
+}
+
+/* ===== 헤더/스크롤 색 전환 (영상 위=흰, 영상 밖=검) ===== */
+header .inner nav ul li a {
+    transition: color .2s ease;
+}
+
+header.on-video .inner nav ul li,
+header.on-video .inner nav ul li a {
+    color: #fff !important;
+}
+
+header.on-video .inner nav ul li:hover,
+header.on-video .inner nav ul li a:hover {
+    color: #fff !important;
+}
+
+/* Scroll icon position & color toggle */
+.scl_btn {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.scl_btn.on-video img {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* 영상 위: 하양 */
+.scl_btn:not(.on-video) img {
+    filter: brightness(0) !important;
+}
+
+/* 영상 밖: 검정 */
+
+/* =========================
+   Hero
+   ========================= */
+.hero {
+    width: min(1200px, 92vw);
+    overflow: hidden;
+    margin: auto;
+    color: #fff;
+    text-align: center;
+    padding-top: 350px;
+}
+
+.hero h4 {
+    font-size: clamp(14px, 2.4vw, 20px);
+    font-weight: 300;
+    color: rgba(255, 255, 255, .5);
+}
+
+.hero h2 {
+    font-size: clamp(28px, 6vw, 64px);
+    font-weight: 800;
+    margin: 32px 0;
+    line-height: 1.25;
+}
+
+.hero p {
+    font-size: clamp(14px, 2.6vw, 16px);
+    font-weight: 200;
+    line-height: 1.6;
+}
+
+.hero .btn {
+    margin: auto;
+    margin-top: 32px;
+    width: 215px;
+    height: 60px;
+    background: linear-gradient(135deg, #66B5FF 0%, #6366FF 100%);
+    align-content: center;
+    border-radius: 30px;
+}
+
+/* Scroll cue */
+/* .scl_btn {
+    /* already positioned above }*/
+*/ .scl_btn img {
+    width: 50px;
+    height: 50px;
+}
+
+/* =========================
+   Footer
+   ========================= */
+.footer {
+    text-align: center;
+    font-size: 12px;
+    color: #ddd;
+    line-height: 1.6;
+    padding: 24px;
+    border-top: 1px solid #222;
+    background: #111;
+}
+
+.footer strong {
+    color: #fff;
+}
+
+/* =========================
+   Desktop layout tuning
+   ========================= */
+@media (min-width:901px) {
+
+    /* middle spacing & right box shrink-to-content */
+    .area4 .item1 .middle,
+    .area4 .item2 .middle,
+    .area4 .item3 .middle,
+    .area4 .item4 .middle,
+    .area4 .item5 .middle {
+        display: flex;
+        gap: clamp(10px, 2vw, 14px);
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .area4 .item1 .middle .left,
+    .area4 .item2 .middle .left,
+    .area4 .item3 .middle .left,
+    .area4 .item4 .middle .left,
+    .area4 .item5 .middle .left {
+        flex: 1 1 auto;
+        float: none;
+        min-width: 260px;
+    }
+
+    .area4 .item1 .middle .right,
+    .area4 .item2 .middle .right,
+    .area4 .item3 .middle .right,
+    .area4 .item4 .middle .right,
+    .area4 .item5 .middle .right {
+        flex: 0 0 auto;
+        min-width: 0;
+        width: auto;
+        margin-left: auto;
+        text-align: right;
+        float: none;
+    }
+
+    .area4 .item1 .middle .right h3,
+    .area4 .item2 .middle .right h3,
+    .area4 .item3 .middle .right h3,
+    .area4 .item4 .middle .right h3,
+    .area4 .item5 .middle .right h3 {
+        display: inline-block;
+    }
+}
+
+/* =========================
+   Tablet/Mobile
+   ========================= */
+@media (max-width:980px) {
+    header {
+        height: 76px;
+    }
+
+    .inner {
+        padding: 0 16px;
+    }
+
+    .hero {
+        padding-top: clamp(140px, 22vh, 260px);
+    }
+
+    .area2 {
+        margin-top: clamp(60px, 10vh, 160px);
+    }
+}
+
+@media (max-width:900px) {
+
+    /* Header stack: logo center, nav below */
+    header {
+        height: auto;
+    }
+
+    .inner {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 16px;
+    }
+
+    .inner h1 {
+        order: 1;
+    }
+
+    .inner nav {
+        order: 2;
+        width: 100%;
+    }
+
+    .inner nav ul {
+        justify-content: center;
+        gap: 10px 16px;
+    }
+
+    .inner nav ul li {
+        margin-left: 0;
+    }
+
+    /* Area4 spacing & stacking */
+    .area4 {
+        margin: 60px auto;
+    }
+
+    .area4 .item1,
+    .area4 .item2,
+    .area4 .item3,
+    .area4 .item4,
+    .area4 .item5 {
+        margin-top: clamp(28px, 4vw, 40px);
+        padding: 24px;
+    }
+
+    .area4 .item1 .top,
+    .area4 .item2 .top,
+    .area4 .item3 .top,
+    .area4 .item4 .top,
+    .area4 .item5 .top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .area4 .item1 .top .bedge,
+    .area4 .item2 .top .bedge,
+    .area4 .item3 .top .bedge,
+    .area4 .item4 .top .bedge,
+    .area4 .item5 .top .bedge {
+        float: none;
+    }
+
+    .area4 .item1 .top ul,
+    .area4 .item2 .top ul,
+    .area4 .item3 .top ul,
+    .area4 .item4 .top ul,
+    .area4 .item5 .top ul {
+        float: none;
+        padding-left: 18px;
+    }
+
+    /* middle: single-column grid to kill float artifacts */
+    .area4 .item1 .middle,
+    .area4 .item2 .middle,
+    .area4 .item3 .middle,
+    .area4 .item4 .middle,
+    .area4 .item5 .middle {
+        display: grid !important;
+        grid-template-columns: 1fr;
+        grid-auto-rows: max-content;
+        row-gap: 12px;
+        height: auto !important;
+        float: none !important;
+    }
+
+    .area4 .item1 .middle .left,
+    .area4 .item2 .middle .left,
+    .area4 .item3 .middle .left,
+    .area4 .item4 .middle .left,
+    .area4 .item5 .middle .left {
+        order: 1;
+        float: none !important;
+        margin: 0;
+    }
+
+    .area4 .item1 .middle .right,
+    .area4 .item2 .middle .right,
+    .area4 .item3 .middle .right,
+    .area4 .item4 .middle .right,
+    .area4 .item5 .middle .right {
+        order: 2;
+        float: none !important;
+        align-self: start;
+        justify-self: end;
+        width: auto;
+        min-width: 0;
+        margin: 6px 0 0 !important;
+        text-align: right;
+    }
+
+    /* bottom: full-width CTA, hide arrow */
+    .area4 .item1 .bottom,
+    .area4 .item2 .bottom,
+    .area4 .item3 .bottom,
+    .area4 .item4 .bottom,
+    .area4 .item5 .bottom {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .area4 .item1 .bottom .arrow,
+    .area4 .item2 .bottom .arrow,
+    .area4 .item3 .bottom .arrow,
+    .area4 .item4 .bottom .arrow,
+    .area4 .item5 .bottom .arrow {
+        display: none !important;
+    }
+
+    .area4 .item1 .bottom .bedge,
+    .area4 .item2 .bottom .bedge,
+    .area4 .item3 .bottom .bedge,
+    .area4 .item4 .bottom .bedge,
+    .area4 .item5 .bottom .bedge {
+        width: 100%;
+        height: 52px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width:640px) {
+    .inner nav ul li {
+        font-size: 16px;
+    }
+
+    .area3 .box .r-box {
+        width: min(320px, 88vw);
+        height: 46px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width:360px) {
+
+    .hero h2,
+    .area2 h2,
+    .area3 .start-box h2,
+    .area4 .text-b h2,
+    .area5 .title h2 {
+        font-size: clamp(22px, 7.2vw, 48px);
+    }
+
+    .inner nav ul li {
+        font-size: clamp(12px, 3.6vw, 16px);
+    }
+}
+
+/* =========================
+   Misc
+   ========================= */
+/* scroll-snap targets */
+.video-container,
+.area2,
+.video-container_b {
+    scroll-snap-align: start;
+}
+
+/* 명백한 오타 보정 */
+.area4 .item5 .middle .right span {
+    font-size: clamp(28px, 6vw, 52px);
+    font-family: "8";
+}
+
+.area4 .plus {
+    width: 100%;
+    max-width: 1280px;
+    margin: 50px auto 0;
+    /* 패키지와 간격/정렬 맞춤 */
+    padding: 0 20px;
+}
+
+.area4 .plus .top-t {
+    text-align: center;
+    /* 라인-제목-라인을 중앙으로 */
+}
+
+.area4 .plus .top-t h2 {
+    width: 111px;
+    display: inline-block;
+    margin: auto;
+    /* 제목 폭 고정 + 중앙 배치 */
+}
+
+/* ===== 강력 스냅: 한 섹션씩 딱—딱 멈추기 ===== */
+
+/* 헤더(90px) 만큼 여백을 두고 스냅 시작점 잡기 */
+html {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 90px;
+    /* 고정 헤더 보정 */
+    overscroll-behavior-y: contain;
+    /* 모바일 바운스 줄이기 */
+}
+
+/* 모든 큰 섹션을 스냅 타깃으로 지정 + skip 방지 */
+.area1,
+.area2,
+.area3,
+.area4,
+.video-container_b {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    /* 빠르게 스크롤해도 한 섹션씩만 */
+}
+
+/* (권장) .area3, .area4가 너무 작을 때 최소 1스크린 확보 */
+.area3,
+.area4 {
+    min-height: 100vh;
+}
+
+/* ===== 스냅 세팅: 내부는 자유 스크롤, 경계만 스냅 ===== */
+
+/* body에 있던 mandatory 효과 무력화 */
+body {
+    scroll-snap-type: none !important;
+}
+
+/* 문서 루트에서 proximity 스냅 + 고정 헤더 보정 */
+html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 90px;
+    /* 고정 헤더 높이만큼 */
+    overscroll-behavior-y: contain;
+    /* 모바일 바운스 줄이기 */
+}
+
+/* 모든 큰 섹션은 스냅 타겟 */
+.area1,
+.area2,
+.area3,
+.area4,
+.video-container_b {
+    scroll-snap-align: start;
+}
+
+/* 짧은 섹션은 '항상' 스냅(휙 넘겨도 멈춤) */
+.area1,
+.area2,
+.video-container_b {
+    scroll-snap-stop: always;
+}
+
+/* 긴 섹션은 느슨하게(내부 자유 스크롤) */
+.area3,
+.area4 {
+    scroll-snap-stop: normal;
+    min-height: 100vh;
+    /* 혹시 모를 짧은 컨텐츠 대비 */
+}
+
+/* ===== 스냅: area3/4는 자유 스크롤, 경계만 스냅 ===== */
+
+/* 문서 전체 스냅은 proximity, 고정 헤더 보정 */
+html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 90px;
+    /* 헤더 높이 */
+    overscroll-behavior-y: contain;
+}
+
+/* body에 있던 mandatory를 강제로 끔 */
+body {
+    scroll-snap-type: none !important;
+}
+
+/* 섹션별 스냅 타깃 지정 */
+.area1,
+.area2,
+.area3,
+.area4,
+.video-container_b {
+    scroll-snap-align: start;
+}
+
+/* 짧은 섹션은 강하게 멈춤(한번에 착) */
+.area1,
+.area2,
+.video-container_b {
+    scroll-snap-stop: always;
+}
+
+/* 긴 섹션은 느슨(내부 자유 스크롤) */
+.area3,
+.area4 {
+    scroll-snap-stop: normal;
+    min-height: 100vh;
+    /* 혹시 짧아질 때 대비 */
+}
+
+/* ===== 스냅: area3/4는 자유 스크롤, 경계에서만 살짝 붙기 ===== */
+html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 90px;
+    /* 고정 헤더 보정 */
+    overscroll-behavior-y: contain;
+    /* 과도한 바운스 방지 */
+}
+
+body {
+    scroll-snap-type: none !important;
+}
+
+.area1,
+.area2,
+.area3,
+.area4,
+.video-container_b {
+    scroll-snap-align: start;
+}
+
+/* 짧은 섹션은 강하게 멈춤 */
+.area1,
+.area2,
+.video-container_b {
+    scroll-snap-stop: always;
+}
+
+/* 긴 섹션은 느슨(내부 자유 스크롤) */
+.area3,
+.area4 {
+    scroll-snap-stop: normal;
+    min-height: 100vh;
+    /* 혹시 짧아질 때 대비 */
+}
+
+/* ===== 스크롤 스냅 완전 OFF (충돌 방지) ===== */
+html,
+body {
+    scroll-snap-type: none !important;
+}
+
+.video-container,
+.area1,
+.area2,
+.area3,
+.area4,
+.video-container_b {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+}
+
+/* (옵션) 바운스 줄이기 */
+html {
+    overscroll-behavior-y: contain;
+}
+
+
+/* ===== Scroll Snap 완전 OFF ===== */
+html, body { scroll-snap-type: none !important; }
+.video-container,
+.area1, .area2, .area3, .area4, .video-container_b {
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal !important;
+}
+/* 바운스/체인 스크롤 최소화 */
+html { overscroll-behavior-y: contain; }
+
+body {
+    background-color: #fff;
+    
+}
+
+/* ===== Scroll Snap 완전 OFF (JS 페이징과 충돌 방지) ===== */
+html, body { scroll-snap-type: none !important; }
+.video-container, .area1, .area2, .area3, .area4, .video-container_b, .area5 {
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal !important;
+}
+/* 바운스/체인 스크롤 최소화 */
+html { overscroll-behavior-y: contain; }
