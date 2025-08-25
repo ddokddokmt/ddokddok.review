@@ -556,7 +556,7 @@ header {
     background: rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(126, 126, 126, .5);
-    z-index: 99;
+    z-index: 999999;
     transition: background-color .2s ease, border-color .2s ease;
 }
 
