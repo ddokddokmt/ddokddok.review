@@ -133,11 +133,14 @@ p {
 
 .area2 figure {
     margin: auto;
+    width: min(720px, 90vw);
 }
 
 .area2 figure img {
-    width: min(720px, 90vw);
-    height: auto;
+    width: 100%;
+    height: auto !important;
+    /* 세로는 자동으로 → 찌부 방지 */
+    max-width: 100%;
 }
 
 .area2 h2 {
@@ -1204,4 +1207,48 @@ html {
 #area4,
 #area5 {
     scroll-margin-top: var(--hdr, 90px);
+}
+
+/* 모바일에서 area4의 장식 라인 숨기기 */
+@media (max-width: 900px) {
+    .area4 .top-t .line {
+        display: none !important;
+    }
+
+    /* 라인 빠져도 제목이 중앙 정렬되도록 보정 */
+    .area4 .package .top-t,
+    .area4 .plus .top-t {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .area4 .package .top-t h2,
+    .area4 .plus .top-t h2 {
+        margin: 0;
+        /* 좌우 라인 없을 때 여백 정리 */
+        display: block;
+        /* inline-block → block로 중앙 */
+    }
+}
+
+@media (max-height: 740px) {
+    .area2 figure {
+        max-height: 40vh;
+        /* 래퍼에만 높이 제한 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        /* 넘치면 잘라냄(이미지 비율은 유지) */
+    }
+
+    .area2 figure img {
+        max-height: 100%;
+        /* 세로 기준으로 줄이되 */
+        width: auto;
+        /* 가로는 자동 → 비율 유지 */
+        height: auto;
+        /* 고정 금지 */
+    }
 }
