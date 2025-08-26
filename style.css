@@ -1225,7 +1225,93 @@ header.on-video .inner nav ul li a:hover {
         /* 가운데 정렬 */
         text-align: center;
         flex-direction: column;
-        
+
         gap: 8px;
     }
+}
+
+/* 섹션/비디오 컨테이너 높이 */
+.video-container,
+.video-container_b,
+.area1,
+.area2 {
+    min-height: 100svh;
+    /* 주소창 포함 '작은' 뷰포트 */
+}
+
+/* 최신 브라우저는 dvh 사용(툴바 제외, 안정) */
+@supports (min-height: 100dvh) {
+
+    .video-container,
+    .video-container_b,
+    .area1,
+    .area2 {
+        min-height: 100dvh;
+    }
+}
+
+/* 오래된 인앱 폴백 */
+html,
+body {
+    height: -webkit-fill-available;
+}
+
+.video-container,
+.video-container_b {
+    min-height: -webkit-fill-available;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* gap 미지원 환경(iOS 14.5 이하 WebView 등) 폴백 */
+@supports not (gap: 1rem) {
+    .inner nav ul {
+        margin-left: -16px;
+    }
+
+    .inner nav ul li {
+        margin-left: 16px;
+    }
+
+    /* 중간 카드 레이아웃 */
+    .area4 .item1 .middle,
+    .area4 .item2 .middle,
+    .area4 .item3 .middle,
+    .area4 .item4 .middle,
+    .area4 .item5 .middle {
+        gap: 0;
+        /* gap 제거 */
+    }
+
+    .area4 .item1 .middle>*,
+    .area4 .item2 .middle>*,
+    .area4 .item3 .middle>*,
+    .area4 .item4 .middle>*,
+    .area4 .item5 .middle>* {
+        margin: 8px;
+        /* 자식 마진으로 간격 대체 */
+    }
+}
+
+header {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* 인앱/사파리 호환 */
+}
+
+header {
+    padding-top: env(safe-area-inset-top, 0px);
+}
+
+.scl_btn {
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+}
+
+.inapp .video-container,
+.inapp .area2,
+.inapp .video-container_b {
+    scroll-snap-align: none;
 }

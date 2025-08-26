@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>리뷰쉴드</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -468,6 +469,14 @@
                 if (cls.contains('area4') && dy > 0 && atBottom(el)) { go(i + 1); return; }
                 // 나머지는 자연 스크롤
             }, { passive: true });
+
+
+            const ua = navigator.userAgent.toLowerCase();
+            const isInApp = /(kakaotalk|fbios|fb_iab|instagram|naver|line)/i.test(ua);
+            if (isInApp) {
+                document.documentElement.classList.add('inapp');
+            }
+
         })();
     </script>
 
