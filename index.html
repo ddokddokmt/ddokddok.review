@@ -166,9 +166,19 @@
                         <p>최대 2개 업장까지 무료</p>
                     </div>
                     <div class="right">
-                        <h3><img src="./월 5,500원.png" alt="dnjf 5,500원"></h3>
-                        <h3>이벤트 가 월 <span>0</span>원</h3>
+                        <div class="price">
+                            <!-- 정가(회색, 취소선) -->
+                            <div class="price__was" aria-label="정가 월 5,500원">
+                                <span class="unit">월</span>
+                                <span class="amount">5,500</span>
+                                <span class="unit">원</span>
+                            </div>
+
+                            <!-- 이벤트가(굵게/큰 숫자) -->
+                            <div class="price__now">이벤트 가 월 <span class="now-amount">0</span>원</div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="bottom">
                     <h3 class="arrow"><img src="./arrow.png" alt="arrow"></h3>
@@ -337,206 +347,129 @@
 
 
     <script>
-        /* ─────────────────────────────────────────────
-         [A] 헤더/스크롤 아이콘: 영상 위/밖 색상 토글 + 이미지 스왑
-         ───────────────────────────────────────────── */
+        /* A. 헤더/스크롤 아이콘: 영상 위/밖 색상 토글 + 이미지 스왑 */
         (function () {
-            function boot() {
-                const header = document.querySelector('header');
-                const scrollBn = document.querySelector('.scl_btn');
-                if (!header) return;
+            const header = document.querySelector('header');
+            const scrollBn = document.querySelector('.scl_btn');
+            if (!header) return;
 
-                const logoImg = header.querySelector('h1 img');
-                const scrollImg = scrollBn ? scrollBn.querySelector('img') : null;
+            const logoImg = header.querySelector('h1 img');
+            const scrollImg = scrollBn ? scrollBn.querySelector('img') : null;
 
-                const getSwap = (img, light) => {
-                    if (!img) return null;
-                    const L = img.dataset.srcLight || img.dataset.light || img.dataset.white;
-                    const D = img.dataset.srcDark || img.dataset.dark || img.dataset.black;
-                    return light ? (L || null) : (D || null);
-                };
-                const swap = (img, light) => {
-                    const target = getSwap(img, light);
-                    if (img && target) {
-                        const abs = new URL(target, location.href).href;
-                        if (img.src !== abs) img.src = target;
-                    }
-                };
-
-                const isOverVideo = (x, y) => {
-                    const stack = document.elementsFromPoint(x, y);
-                    return stack.some(el => {
-                        if (!el || !el.tagName) return false;
-                        const tag = el.tagName.toUpperCase();
-                        if (tag === 'VIDEO') return true;
-                        if (el.id === 'top-bg' || el.id === 'bottom-bg') return true;
-                        return false;
-                    });
-                };
-
-                let ticking = false;
-                const update = () => {
-                    ticking = false;
-                    const hr = header.getBoundingClientRect();
-                    const hx = innerWidth / 2;
-                    const hy = hr.top + hr.height / 2;
-                    const headerOnVideo = isOverVideo(hx, hy);
-                    header.classList.toggle('on-video', headerOnVideo);
-                    swap(logoImg, headerOnVideo);
-
-                    if (scrollBn) {
-                        const sr = scrollBn.getBoundingClientRect();
-                        const sx = sr.left + sr.width / 2;
-                        const sy = sr.top + sr.height / 2;
-                        const scrollOnVideo = isOverVideo(sx, sy);
-                        scrollBn.classList.toggle('on-video', scrollOnVideo);
-                        swap(scrollImg, scrollOnVideo);
-                    }
-                };
-
-                const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
-                addEventListener('scroll', req, { passive: true });
-                addEventListener('resize', req);
-
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', update);
-                    addEventListener('load', update);
-                } else {
-                    update();
-                    addEventListener('load', update);
+            const getSwap = (img, light) => {
+                if (!img) return null;
+                const L = img.dataset.srcLight || img.dataset.light || img.dataset.white;
+                const D = img.dataset.srcDark || img.dataset.dark || img.dataset.black;
+                return light ? (L || null) : (D || null);
+            };
+            const swap = (img, light) => {
+                const target = getSwap(img, light);
+                if (img && target) {
+                    const abs = new URL(target, location.href).href;
+                    if (img.src !== abs) img.src = target;
                 }
-            }
-            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
-            else boot();
+            };
+
+            const isOverVideo = (x, y) =>
+                document.elementsFromPoint(x, y).some(el => {
+                    if (!el || !el.tagName) return false;
+                    const tag = el.tagName.toUpperCase();
+                    return tag === 'VIDEO' || el.id === 'top-bg' || el.id === 'bottom-bg';
+                });
+
+            let ticking = false;
+            const update = () => {
+                ticking = false;
+                const hr = header.getBoundingClientRect();
+                const hx = innerWidth / 2, hy = hr.top + hr.height / 2;
+                const onV = isOverVideo(hx, hy);
+                header.classList.toggle('on-video', onV);
+                swap(logoImg, onV);
+
+                if (scrollBn) {
+                    const sr = scrollBn.getBoundingClientRect();
+                    const sx = sr.left + sr.width / 2, sy = sr.top + sr.height / 2;
+                    const scOnV = isOverVideo(sx, sy);
+                    scrollBn.classList.toggle('on-video', scOnV);
+                    swap(scrollImg, scOnV);
+                }
+            };
+
+            const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+            addEventListener('scroll', req, { passive: true });
+            addEventListener('resize', req);
+            (document.readyState === 'loading') ? addEventListener('DOMContentLoaded', update) : update();
+            addEventListener('load', update);
+
+            // 헤더 실제 높이를 CSS 변수로 반영(앵커/정렬 보정)
+            const root = document.documentElement;
+            const setHdr = () => root.style.setProperty('--hdr', (header.offsetHeight || 90) + 'px');
+            setHdr(); addEventListener('resize', setHdr); addEventListener('load', setHdr);
         })();
 
-        /* ─────────────────────────────────────────────
-         [B] 섹션 페이징
-          - area1/area2: 스냅(점프) 유지
-          - area3/area4: 경계에서도 절대 점프 안 함(자연 스크롤)
-          - area4 → area5 (아래로만): 한 번 점프 (area5 시작 상단 정렬)
-          - area5: 완전 자연 스크롤
-          - 버그 원인 제거:
-              * 현재 섹션 판정을 '절대 좌표'로 계산(경계에서도 정확)
-              * 스냅 후 자동 해제 타임아웃(혹시 모를 락 잔존 방지)
-         ───────────────────────────────────────────── */
+        /* B. 섹션 페이징
+           - area1/area2: 페이징(한 번 휠 → 다음 섹션)
+           - area3/area4: 완전 자연 스크롤 (경계에서도 점프 없음)
+           - area4 → area5: 아래 끝 도달 시 area5 시작으로 점프
+           - area5: 자연 스크롤
+        */
         (function () {
             const headerEl = document.querySelector('header');
             const H = () => (headerEl ? Math.round(headerEl.getBoundingClientRect().height) : 0);
-            const GAP = 12;
-            const LOCK_MS = 550;
-            const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
-
-            // 페이징 타겟(마지막은 .area5 자체)
+            const GAP = 12, LOCK_MS = 550;
             const sections = Array.from(document.querySelectorAll('.area1, .area2, .area3, .area4, .area5'));
             if (!sections.length) return;
 
             const absTop = el => el.getBoundingClientRect().top + scrollY;
             const atBottom = el => el.getBoundingClientRect().bottom <= innerHeight + GAP;
+            const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
 
-            // ★ 절대좌표 기반 현재 섹션 판정: 헤더 아래 기준선보다 '위에 있는' 섹션 중 가장 마지막 것
             const currentIndex = () => {
                 const y = scrollY + H() + 1;
                 let i = 0;
-                for (let k = 0; k < sections.length; k++) {
-                    if (absTop(sections[k]) <= y) i = k; else break;
-                }
+                for (let k = 0; k < sections.length; k++) { if (absTop(sections[k]) <= y) i = k; else break; }
                 return i;
             };
 
-            let lock = false;
-            let lockTimer = null;
-
-            const clearLockSoon = () => {
-                if (lockTimer) clearTimeout(lockTimer);
-                lockTimer = setTimeout(() => { lock = false; }, LOCK_MS);
-            };
-
+            let lock = false, timer = null;
+            const unlockSoon = () => { if (timer) clearTimeout(timer); timer = setTimeout(() => lock = false, LOCK_MS); };
             const go = (i) => {
-                i = clamp(i, 0, sections.length - 1);
-                lock = true;
-                const y = Math.round(absTop(sections[i]) - H());
-                window.scrollTo({ top: y, behavior: 'smooth' });
-                clearLockSoon(); // 안전장치: 시간 지나면 자동 해제
+                i = clamp(i, 0, sections.length - 1); lock = true;
+                scrollTo({ top: Math.round(absTop(sections[i]) - H()), behavior: 'smooth' });
+                unlockSoon();
             };
 
-            // 휠
             addEventListener('wheel', (e) => {
-                const i = currentIndex();
-                const el = sections[i];
-                const cls = el.classList;
+                const i = currentIndex(), el = sections[i], cls = el.classList;
+                if (lock && (cls.contains('area1') || cls.contains('area2'))) { e.preventDefault(); return; }
 
-                // 락 중: area1/2만 차단, area3/4/5는 통과(자연 스크롤)
-                if (lock) {
-                    if (cls.contains('area1') || cls.contains('area2')) e.preventDefault();
-                    return;
-                }
-
-                // area1/2는 스냅
                 if (cls.contains('area1') || cls.contains('area2')) {
-                    e.preventDefault();
-                    go(e.deltaY > 0 ? i + 1 : i - 1);
-                    return;
+                    e.preventDefault(); go(e.deltaY > 0 ? i + 1 : i - 1); return;
                 }
 
-                // area3/area4는 경계에서도 점프 금지 (그냥 통과)
-                // 단, area4 아래방향 + 맨끝 → area5로만 점프
                 if (cls.contains('area4') && e.deltaY > 0 && atBottom(el)) {
-                    e.preventDefault();
-                    go(i + 1); // area5 시작 정렬
-                    return;
+                    e.preventDefault(); go(i + 1); return;
                 }
-
-                // area3/area4 내부/경계, area5 전체: 자연 스크롤 (막지 않음)
+                // area3/area4(경계) & area5: 자연 스크롤
             }, { passive: false });
 
             // 터치 스와이프
-            let startY = null;
-            addEventListener('touchstart', ev => { startY = ev.touches[0].clientY; }, { passive: true });
+            let sy = null;
+            addEventListener('touchstart', ev => { sy = ev.touches[0].clientY; }, { passive: true });
             addEventListener('touchend', ev => {
-                if (startY == null) return;
-                const dy = startY - ev.changedTouches[0].clientY;
-                startY = null;
+                if (sy == null) return;
+                const dy = sy - ev.changedTouches[0].clientY; sy = null;
                 if (Math.abs(dy) < 30) return;
 
-                const i = currentIndex();
-                const el = sections[i];
-                const cls = el.classList;
+                const i = currentIndex(), el = sections[i], cls = el.classList;
+                if (lock && (cls.contains('area1') || cls.contains('area2'))) return;
 
-                if (lock && (cls.contains('area1') || cls.contains('area2'))) return; // 스냅 중이면 무시
-
-                if (cls.contains('area1') || cls.contains('area2')) {
-                    go(dy > 0 ? i + 1 : i - 1);
-                    return;
-                }
-
-                if (cls.contains('area4') && dy > 0 && atBottom(el)) {
-                    go(i + 1);
-                    return;
-                }
+                if (cls.contains('area1') || cls.contains('area2')) { go(dy > 0 ? i + 1 : i - 1); return; }
+                if (cls.contains('area4') && dy > 0 && atBottom(el)) { go(i + 1); return; }
                 // 나머지는 자연 스크롤
             }, { passive: true });
-
-            // 폰트/이미지 로드로 레이아웃이 변해도 현재 인덱스 계산은 절대좌표라 안전
-        })();
-
-
-        (function () {
-            const root = document.documentElement;
-            const header = document.querySelector('header');
-
-            function setHeaderOffset() {
-                const h = header ? header.offsetHeight : 90;
-                root.style.setProperty('--hdr', h + 'px');
-            }
-
-            // 초기/리사이즈/폰트·이미지 로드 변화에도 반영
-            setHeaderOffset();
-            window.addEventListener('load', setHeaderOffset);
-            window.addEventListener('resize', setHeaderOffset);
         })();
     </script>
-
 
 
 
