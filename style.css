@@ -124,7 +124,7 @@ p {
     margin: auto;
     color: #fff;
     text-align: center;
-    padding-top: clamp(180px, 24vh, 350px);
+    padding-top: clamp(200px, 30vh, 560px);
 }
 
 .hero h4 {
@@ -174,7 +174,7 @@ p {
     width: 100%;
     color: #fff;
     text-align: center;
-    padding-top: clamp(120px, 14vh, 230px);
+    padding-top: clamp(100px, 14vh, 200px);
     min-height: calc(100vh - var(--hdr) - clamp(120px, 14vh, 230px));
     display: flex;
     flex-direction: column;
@@ -184,13 +184,13 @@ p {
 }
 
 .area2 figure {
-    margin: auto;
+    margin: 0 0 12px;
     width: min(720px, 90vw);
 }
 
 .area2 h2 {
     font-size: clamp(24px, 6vw, 64px);
-    margin-top: 32px;
+    margin-top: clamp(8px 2vh 20px);
 }
 
 .area2 span {
@@ -721,7 +721,7 @@ header.on-video .inner nav ul li a:hover {
     }
 
     .hero {
-        padding-top: clamp(140px, 22vh, 260px);
+        padding-top: clamp(160px, 28vh, 420px);
     }
 }
 
